@@ -13,7 +13,8 @@ import javax.swing.JFrame;
 public class Game extends Canvas implements Runnable, KeyListener {
 
 	
-	public static int WIDTH = 480, HEIGHT = 480;
+	public static int WIDTH = 640, HEIGHT = 480;
+	public static int SCALE = 3;
 	public Personagem personagem;
 	public Mundo mundo;
 	
@@ -45,8 +46,12 @@ public class Game extends Canvas implements Runnable, KeyListener {
 		
 		Graphics g = bs.getDrawGraphics();		
 		
-		g.setColor(Color.black);
-		g.fillRect(0,0, WIDTH,HEIGHT);
+		
+		//g.setColor(Color.green);		
+		//g.fillRect(0,0, WIDTH,HEIGHT);
+		g.drawImage(Spritesheet.chao, 0, 0, WIDTH*SCALE,HEIGHT*SCALE, null);
+		
+		
 				
 		personagem.render(g);
 		mundo.render(g);

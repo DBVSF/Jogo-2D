@@ -9,7 +9,11 @@ public class Spritesheet {
 
 	public static BufferedImage spritesheet;
 	
-	public static BufferedImage jogador_front;
+	public static BufferedImage[] jogador_front;
+	
+	public static BufferedImage parede_bloco;
+	
+	public static BufferedImage chao;
 	
 	public Spritesheet() {
 		try {
@@ -19,7 +23,12 @@ public class Spritesheet {
 			e.printStackTrace();
 		}	
 		
-		jogador_front= Spritesheet.getSprite(0, 11, 16, 16);
+		jogador_front = new BufferedImage[2];
+		jogador_front[0] = Spritesheet.getSprite(0, 11, 16, 16); 
+		jogador_front[1] = Spritesheet.getSprite(18, 11, 16, 16); 
+		
+		parede_bloco= Spritesheet.getSprite(313, 241, 16, 16);
+		chao = Spritesheet.getSprite(273, 241, 16, 16); 
 	}
 	
 	

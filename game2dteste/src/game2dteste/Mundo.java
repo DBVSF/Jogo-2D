@@ -11,17 +11,17 @@ public class Mundo {
 	public static List<Bloco> blocos = new ArrayList <Bloco>();
 	
 	public Mundo () {
-		for(int xx = 0; xx <15; xx++) {
+		for(int xx = 0; xx <15*2; xx++) {
 			blocos.add(new Bloco(xx*32,0));
 		}
-		for(int xx = 0; xx <15; xx++) {
+		for(int xx = 0; xx <15*2; xx++) {
 			blocos.add(new Bloco(xx*32,480-32));
 		}
 		for(int yy = 0; yy <15; yy++) {
 			blocos.add(new Bloco(0,yy*32));
 		}
 		for(int yy = 0; yy <15; yy++) {
-			blocos.add(new Bloco(480-32,yy*32));
+			blocos.add(new Bloco(640-32,yy*32));
 		}
 		
 	}

@@ -11,9 +11,16 @@ public class Bloco extends Rectangle{
 	}
 	
 	public void render(Graphics g) {
-		g.setColor(Color.pink);
-		g.fillRect(x, y, width, height);
-		g.setColor(Color.black);
-		g.drawRect(x, y, width, height);
+		//g.setColor(Color.pink);
+		//g.fillRect(x, y, width, height);
+		//g.setColor(Color.black);
+		//g.drawRect(x, y, width, height);
+		
+		g.drawImage(Spritesheet.parede_bloco, x, y,32,32, null);
+		
+
+		
+	
+		
 	}
 }
