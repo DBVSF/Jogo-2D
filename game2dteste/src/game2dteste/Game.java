@@ -1,12 +1,13 @@
 package game2dteste;
 
 import java.awt.Canvas;
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferStrategy;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JFrame;
 
@@ -15,8 +16,10 @@ public class Game extends Canvas implements Runnable, KeyListener {
 	
 	public static int WIDTH = 640, HEIGHT = 480;
 	public static int SCALE = 3;
-	public Personagem personagem;
+	public static Personagem personagem;
 	public Mundo mundo;
+	
+	public List<Inimigo> inimigos =new ArrayList<Inimigo>();
 	
 	public Game () {
 		
@@ -27,6 +30,9 @@ public class Game extends Canvas implements Runnable, KeyListener {
 		personagem = new Personagem(32,32);
 		mundo = new Mundo();
 		
+		
+		
+		inimigos.add(new Inimigo(35,35));
 	}
 	
 	
@@ -34,6 +40,9 @@ public class Game extends Canvas implements Runnable, KeyListener {
 		
 		personagem.tick();
 		
+		for(int i =0; i < inimigos.size(); i++ ) {
+			inimigos.get(i).tick();
+		}
 	}
 	
 	public void render () {
@@ -55,7 +64,14 @@ public class Game extends Canvas implements Runnable, KeyListener {
 				
 		personagem.render(g);
 		mundo.render(g);
+		
+		for(int i =0; i < inimigos.size(); i++ ) {
+			inimigos.get(i).render(g);
+		}
+		
 		bs.show();
+		
+		
 	}
 	
 	 public static void main (String[] arg) {
@@ -109,7 +125,10 @@ public class Game extends Canvas implements Runnable, KeyListener {
 		}
 		if(e.getKeyCode()== KeyEvent.VK_UP) {
 			personagem.up = true;
-		} 
+		}
+		if (e.getKeyCode()== KeyEvent.VK_Z) {
+			personagem.shoot = true;
+		}
 		else if(e.getKeyCode()== KeyEvent.VK_DOWN) {
 			personagem.down = true;
 		}

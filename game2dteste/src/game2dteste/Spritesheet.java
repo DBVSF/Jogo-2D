@@ -15,6 +15,10 @@ public class Spritesheet {
 	
 	public static BufferedImage chao;
 	
+	public static BufferedImage[] inimigo_front;
+	
+	
+	
 	public Spritesheet() {
 		try {
 			spritesheet = ImageIO.read(getClass().getResource("/spritesheet.png"));
@@ -26,6 +30,12 @@ public class Spritesheet {
 		jogador_front = new BufferedImage[2];
 		jogador_front[0] = Spritesheet.getSprite(0, 11, 16, 16); 
 		jogador_front[1] = Spritesheet.getSprite(18, 11, 16, 16); 
+		
+		
+		inimigo_front = new BufferedImage[2];
+		inimigo_front[0] = Spritesheet.getSprite(313, 153, 16, 16); 
+		inimigo_front[1] = Spritesheet.getSprite(330, 153, 16, 16); 
+		
 		
 		parede_bloco= Spritesheet.getSprite(313, 241, 16, 16);
 		chao = Spritesheet.getSprite(273, 241, 16, 16); 
